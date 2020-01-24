@@ -7,7 +7,7 @@
 ### Install
 
 Clone the repo using git clone.
-` git clone https://github.com/zoom/zoom-api-jwt.git`
+` git clone https://github.com/thapakorn613/remoteLab-zoomApi.git`
 
 Install the dependent node modules.
 
