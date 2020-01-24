@@ -11,8 +11,9 @@ Clone the repo using git clone.
 
 Install the dependent node modules.
 
-npm install
-npm install windows-edge
+1. ` npm install
+
+2. ` npm install windows-edge
 
 ### Config
 
