@@ -9,13 +9,14 @@
 Clone the repo using git clone.
 ` git clone https://github.com/zoom/zoom-api-jwt.git`
 
-> Install the dependent node modules.
+Install the dependent node modules.
+
 npm install
 npm install windows-edge
 
 ### Config
 
-> In the config.js file, input your client API Key & Secret credentials.
+ In the config.js file, input your client API Key & Secret credentials.
 ``` 
 	const config = {
 	production:{	
@@ -24,11 +25,8 @@ npm install windows-edge
 	}
     };
 ```
-> Set your environment varaibles.
-` export NODE_NEV=[environment name] (e.g. export NODE_NEV=production) `
-
 > Start the node app.
-Type `node index.js` in your terminal from within the project directory.
+Type node index.js
 
 > Enter your email and view the API's response.
 
