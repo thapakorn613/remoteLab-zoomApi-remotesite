@@ -33,5 +33,9 @@ Type node index.js
 
 After you submit an email address, Zoom API call and you will be redirected to localhost:3000/userinfo page that displays the API response
 
+### Run Project 
+-> open cmd
+-> "node index.js"
+
 
 
