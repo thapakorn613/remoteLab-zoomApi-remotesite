@@ -19,14 +19,16 @@ const token = jwt.sign(payload, config.APISecret);
 
 const edge = require("windows-edge");
 //get the form
+
 app.get("/", (req, res) => res.send(req.body));
 
 //use userinfo from the form and make a post request to /userinfo
 app.post("/userinfo", (req, res) => {
   //store the email address of the user in the email variable
-  email = req.body.email;
+  //   email = req.body.email;
+  email = "thapakorn613@gmail.com";
   //check if the email was stored in the console
-  console.log(email);
+  console.log("start zoom ");
   //Store the options for Zoom API which will be used to make an API call later.
   var options = {
     //You can use a different uri if you're making an API call to a different Zoom endpoint.
@@ -83,7 +85,6 @@ app.post("/userinfo", (req, res) => {
       // API call failed...
       console.log("API call failed, reason ", err);
     });
-  
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
