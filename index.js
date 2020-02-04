@@ -2,11 +2,17 @@
 const jwt = require("jsonwebtoken");
 const config = require("./config");
 const rp = require("request-promise");
+var path = require('path');
 
 const express = require("express");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 var email, userid, resp, linkZoomId;
 const port = 3000;
 
@@ -20,10 +26,10 @@ const token = jwt.sign(payload, config.APISecret);
 const edge = require("windows-edge");
 //get the form
 
-app.get("/", (req, res) => res.send(req.body));
+// app.get("/", (req, res) => res.render('index'));
 
-//use userinfo from the form and make a post request to /userinfo
-app.post("/userinfo", (req, res) => {
+// use userinfo from the form and make a post request to /userinfo
+  app.get("/", (req, res) => {
   //store the email address of the user in the email variable
   //   email = req.body.email;
   email = "thapakorn613@gmail.com";
