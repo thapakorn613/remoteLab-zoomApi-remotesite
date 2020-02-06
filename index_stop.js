@@ -7,22 +7,6 @@ var path = require("path");
 
 const express = require("express");
 const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
-
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
-var email, userid, resp, linkZoomId;
-const port = 3000;
-
-//Use the ApiKey and APISecret from config.js
-const payload = {
-  iss: config.APIKey,
-  exp: new Date().getTime() + 5000
-};
-const token = jwt.sign(payload, config.APISecret);
 
 const edge = require("windows-edge");
 //get the form
@@ -41,14 +25,10 @@ app.get("/", (req, res) => {
     //You can use a different uri if you're making an API call to a different Zoom endpoint.
     uri: "https://api.zoom.us/v2/users/" + email,
     qs: {
-      status: "active"
+      status: "inactive"
     },
     auth: {
       bearer: token
-    },
-    headers: {
-      "User-Agent": "Zoom-api-Jwt-Request",
-      "content-type": "application/json"
     },
     json: true //Parse the JSON string in the response
   };
@@ -99,3 +79,10 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 // setTimeout(() => {
 //     process.kill(process.pid, 'SIGTERM')
 // }, 3000);
+
+
+// process.on('SIGTERM', () => {
+//     server.close(() => {
+//         console.log('Process terminated')
+//     })
+// })
